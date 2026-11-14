@@ -29,8 +29,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
   vertical scrolling is enabled when the range cannot fit.
 - Incremental audio scheduling with a 1.8 s lookahead, so large MIDI projects do not freeze the UI on play.
 - WAV export via `OfflineAudioContext` (44.1 kHz / 16-bit stereo), MIDI export, NST export and project JSON.
-- Example score library: three editable “東方連復段” arrangements (Synthwave / Music Box / Chiptune)
-  and a local `TH06_05 おてんば恋娘` edit generated from the user-provided MIDI.
+- Example score library: three full-length local Touhou edits generated from the user-provided MIDIs:
+  TH06_05 (main melody corrected to the original Ch3 electric piano), TH06_14 (Darksynth),
+  TH09_04 (City Pop). The previous three “東方連復段” placeholder examples were removed.
+- Corrected TH06_14: the Ch8 “arpeggio” segment in bars 22–29 is that section’s main melody —
+  the user’s “東方連復段” — and is now a separate lead track with `crystalLead`, not a background arp.
 - VS Code extension for `.nst` syntax highlighting and snippets under `editors/vscode-nst/`.
 - Repository README, changelog, development log and security audit.
 

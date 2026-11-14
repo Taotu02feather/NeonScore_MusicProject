@@ -23,15 +23,15 @@
 | --- | --- | --- | --- |
 | 动态代码执行：`eval` | 安全 | 全仓库检索无匹配 | 运行时和构建脚本都没有 `eval`。 |
 | 动态代码执行：`new Function` | 安全 | 全仓库检索无匹配 | 没有字符串转函数。 |
-| 动态代码执行：`vm` | 无（已移除） | `tools/build-samples.js:10-18`；`tools/build-touhou-edit.js:9-18`；`js/util.js:180`、`js/theory.js:286`、`js/model.js:618`、`js/midi.js:442`、`js/textscore.js:494` | 构建脚本改为静态 `require("../js/...")` + `module.exports`，不再创建 `vm` 上下文，也不执行读入的源码字符串。浏览器仍通过 `<script>` 加载同一批模块。 |
+| 动态代码执行：`vm` | 无（已移除） | `tools/build-touhou-edit.js:9-18`；`js/util.js:180`、`js/theory.js:286`、`js/model.js:618`、`js/midi.js:442`、`js/textscore.js:494` | 构建脚本改为静态 `require("../js/...")` + `module.exports`，不再创建 `vm` 上下文，也不执行读入的源码字符串；旧的 `build-samples.js` 已删除。浏览器仍通过 `<script>` 加载同一批模块。 |
 | 动态 `require` / `import` | 安全 | `index.html:351-362` | 所有 `<script src>` 都是写死的相对路径；没有按文件名/用户输入拼 `require` 或 `import`。 |
 | 从网络/文件读入后直接执行 | 安全 | `js/midi.js`、`js/musicxml.js`、`js/textscore.js`、`js/app.js` | MIDI/XML/文本/JSON 只被解析成数据；没有 `eval`、`Function`、`script` 注入。 |
 | 子进程：`child_process` / `exec` / `spawn` | 安全 | 全仓库检索无匹配 | 没有子进程调用。`打开 NEONSCORE.bat:3` 只有 `start "" "%~dp0index.html"`，不含用户输入，也不拼接 shell 命令。 |
 | 网络请求：`fetch` / `axios` / XHR / WebSocket | 安全 | `js/` 检索无匹配 | 应用运行时不发网络请求；没有上传乐谱、本地路径或 telemetry。`index.html` 只加载本地 CSS/JS。 |
 | 下载并执行远程脚本 | 安全 | `index.html:351-362` | 没有远程 `<script>`、没有自动更新、没有从 GitHub/npm 拉取运行时脚本。 |
-| 外部链接 | 安全 | `js/app.js:1251`；`README.md`；`scores/README.md:61,64`；`editors/vscode-nst/syntaxes/nst.tmLanguage.json:2` | 仅版权署名链接和 VS Code 语法文件的 `$schema` 标识；`target="_blank"` 带 `rel="noopener"`；应用不会自动请求这些 URL。 |
+| 外部链接 | 安全 | `js/app.js:1251`；`README.md`；`scores/README.md`；`editors/vscode-nst/syntaxes/nst.tmLanguage.json:2` | 仅版权署名链接和 VS Code 语法文件的 `$schema` 标识；`target="_blank"` 带 `rel="noopener"`；应用不会自动请求这些 URL。 |
 | 文件系统：浏览器运行时 | 安全 | `js/util.js:111-136`；`js/app.js:1061` | 使用 `FileReader` 读取用户选择的本地文件；下载用 Blob + `<a download>`；不直接写任意路径，不递归删除。单文件导入上限 25MB。 |
-| 文件系统：构建脚本 | 安全（受信任本地环境） | `tools/build-samples.js:19-23,135-196`；`tools/build-touhou-edit.js:20-23,43,116-132` | 只读写 `__dirname/..` 下的 `scores/`、`TouhouMid/`；路径是固定常量，不接收用户输入；没有 `rm` / `rmSync` / `rimraf` / 递归删除。 |
+| 文件系统：构建脚本 | 安全（受信任本地环境） | `tools/build-touhou-edit.js:20-23,43,116-132` | 只读写 `__dirname/..` 下的 `scores/`、`TouhouMid/`；路径是固定常量，不接收用户输入；没有 `rm` / `rmSync` / `rimraf` / 递归删除。 |
 | 路径穿越 / 下载文件名 | 安全（已加固） | `js/util.js:161` | `safeFilename()` 去掉 `\ / : * ? " < > \|` 和空白；拒绝 `.` / `..`；下载名不参与服务端路径拼接。 |
 | `fs.realpath` 校验 | 安全（当前不需要） | — | 构建脚本不使用用户提供的路径，因此没有 realpath 白名单；如果以后增加“按用户路径写入”，必须补 `path.resolve` + `fs.realpath` + 根目录包含校验。 |
 | HTML 注入 / XSS | 安全（原可疑，已修复） | `js/model.js:535,544,548`；`js/app.js:164,1219,1221` | 导入工程 JSON 的 `track.id` / `note.id` 现在只允许 `[A-Za-z0-9_-]{1,80}`；轨道 tab 对 id/color/name 做 escape；示例卡颜色校验为六位 hex。原先恶意 `track.id` 可打断 `data-track="..."` 属性并注入事件处理器。 |
@@ -86,14 +86,15 @@
 
 ### 3. Node `vm` 出现在构建脚本（已移除）
 
-**原问题：** `tools/build-samples.js` 和 `tools/build-touhou-edit.js` 用 `vm` 在 Node 里加载浏览器端模块，以复用示例生成逻辑。`vm` 不是安全边界；如果本地 `js/*.js` 被替换，运行构建脚本会以开发者权限执行。
+**原问题：** `tools/build-samples.js` 和 `tools/build-touhou-edit.js` 曾用 `vm` 在 Node 里加载浏览器端模块，以复用示例生成逻辑。`vm` 不是安全边界；如果本地 `js/*.js` 被替换，运行构建脚本会以开发者权限执行。
 
 **处理：**
 
 - 六个共享模块（`util`、`theory`、`presets`、`model`、`midi`、`textscore`）改为同时支持浏览器全局和 CommonJS：
   - 顶部使用 `typeof window !== "undefined" ? window : globalThis`；
   - 底部用 `if (typeof module !== "undefined" && module.exports) module.exports = ...` 导出。
-- `tools/build-samples.js:10-18` 和 `tools/build-touhou-edit.js:9-18` 改为静态 `require("../js/...")`，不再 `require("vm")`，不再读入源码字符串执行。
+- `tools/build-touhou-edit.js:9-18` 改为静态 `require("../js/...")`，不再 `require("vm")`，不再读入源码字符串执行。
+- 旧的 `tools/build-samples.js` 已删除；现在只剩一个本地示例生成脚本。
 - 浏览器端 `<script>` 加载路径和全局 `window.NS` 行为保持不变。
 
 **原因：** 去掉“可执行任意本地代码”的构建期入口，同时保持示例生成逻辑可复用。
@@ -131,16 +132,16 @@ frame-src 'none';
 | `js/musicxml.js:302-370` | ZIP 条目/大小/边界限制 + XML 过滤 | 阻止压缩炸弹/越界读取 |
 | `js/util.js:161` | 拒绝 `.` / `..` 下载文件名 | 文件名安全 |
 | `js/util.js:3,180` 等 6 个模块 | 增加 CommonJS 导出，同时保留浏览器全局 | 让构建脚本可以 `require`，替代 `vm` |
-| `tools/build-samples.js:10-18` | 删除 `vm`，改静态 `require` | 移除构建期任意本地代码执行入口 |
-| `tools/build-touhou-edit.js:9-18` | 删除 `vm`，改静态 `require` | 同上 |
+| `tools/build-touhou-edit.js:9-18` | 删除 `vm`，改静态 `require` | 移除构建期任意本地代码执行入口 |
+| `tools/build-samples.js` | 删除旧占位示例生成脚本 | 不再生成已移除的「東方連復段」示例 |
 | `index.html:6` | 增加 CSP | 限制脚本/样式/网络来源 |
 
-未删除任何乐谱生成、音频、导入导出功能。未改动音频合成、自动编曲、钢琴卷帘核心逻辑。
+未删除应用核心的乐谱生成、音频、导入导出功能。移除了 3 个已下架的「東方連復段」占位示例及其生成脚本；音频合成、自动编曲、钢琴卷帘逻辑未改动。
 
 ## 复测记录
 
 - 首屏：5 轨 / 362 音符，无异常。
-- 示例库：3 个内置 + 1 个 LOCAL，共 4 个；LOCAL 东方工程 1,171 音符 / 6 轨加载成功。
+- 示例库：3 个 LOCAL 东方全曲工程（3 个「東方連復段」占位示例已移除）；分别 3,329 / 2,941 / 3,369 音符加载成功。
 - 完整 `th06_05.mid`：14 轨 / 4,608 音符 / 57 小节导入成功；播放头推进；无异常。
 - 压缩 `.mxl`：导入成功。
 - CSP 下 MIDI 导入：703 音符 / 6 轨；CSP 下 MXL 导入：164 音符 / 5 轨。

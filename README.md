@@ -21,7 +21,7 @@
 1. 双击 `打开 NEONSCORE.bat` 或 `index.html`。
 2. 默认会载入 `NEON DREAM` 示例。按 **空格** 播放。
 3. 点顶部 **导入乐谱**：
-   - 选择内置示例（Synthwave / 八音盒 / Chiptune / 本地东方工程）；
+   - 选择示例（目前是 3 个 LOCAL 东方全曲工程；新的内置谱例等素材到位后再补）；
    - 或选择 `.nst`、`.txt`、`.mid`、`.musicxml`、`.mxl`、`.nsscore.json`。
 4. 在钢琴卷帘上点一下写音符，拖右边缘改长度，选中后按 `H` 自动配和弦。
 5. 右侧「音色」换乐器，「编曲」调织体，「一键编曲」重写伴奏。
@@ -111,7 +111,7 @@ NeonScore_MusicProject/          ← git 仓库根目录
     NST-FORMAT.md
     library.js
     local-library.js
-    Touhou/              # th06_05 本地编辑工程
+    Touhou/              # 3 个东方全曲工程
   TouhouMid/             # 用户提供的东方 MIDI 源文件
   editors/vscode-nst/    # VS Code 语法高亮扩展
   tools/                 # 示例生成脚本
@@ -127,10 +127,7 @@ NeonScore_MusicProject/          ← git 仓库根目录
 # 直接运行
 .\打开 NEONSCORE.bat
 
-# 重新生成三套「東方連復段」示例 + MIDI
-node tools/build-samples.js
-
-# 重新生成 th06_05 本地编辑工程与 LOCAL 示例
+# 重新生成三个东方全曲工程与 LOCAL 示例
 node tools/build-touhou-edit.js
 ```
 
@@ -141,9 +138,9 @@ node tools/build-touhou-edit.js
 
 ## 示例与版权
 
-- 内置「東方連復段」示例的旋律参考 [Wikimedia Commons: AsianRiffSheetMusic](https://commons.wikimedia.org/wiki/File:AsianRiffSheetMusic.png)（CC BY-SA 3.0）。编曲、音色与鼓组为本工程原创改编；再分发时请保留署名与相同方式共享。
-- `scores/Touhou/` 中的「おてんば恋娘」编辑工程来自用户提供的 `TouhouMid/th06_05.mid`。原曲版权归 **ZUN / Team Shanghai Alice**，仅供本地个人学习与编辑，请勿再分发该改编文件。
-- 代码以根目录 [`LICENSE`](LICENSE)（MIT）授权；示例旋律的许可以上一条为准。
+- 示例谱库目前保留 3 个 LOCAL 东方全曲工程；原来的 3 个「東方連復段」占位示例已移除，后续会换成新的东方曲目。
+- `scores/Touhou/` 中的三首东方全曲工程（おてんば恋娘 / 魔法少女達の百年祭 / フラワリングナイト）来自用户提供的 `TouhouMid/` MIDI。原曲版权归 **ZUN / Team Shanghai Alice**，仅供本地个人学习与编辑，请勿再分发这些改编文件。
+- 代码以根目录 [`LICENSE`](LICENSE)（MIT）授权；东方原曲版权归 ZUN / Team Shanghai Alice。
 
 ## 已知限制
 
@@ -163,8 +160,7 @@ node tools/build-touhou-edit.js
 ## 开发 / 重新生成示例
 
 ```powershell
-node tools/build-samples.js       # 三套「東方連復段」示例 + MIDI
-node tools/build-touhou-edit.js   # th06_05 本地编辑工程与 LOCAL 示例
+node tools/build-touhou-edit.js   # 三个东方全曲工程与 LOCAL 示例
 ```
 
 无需 npm 安装。直接用浏览器打开 `index.html` 即可调试。

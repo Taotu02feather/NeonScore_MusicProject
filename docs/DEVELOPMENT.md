@@ -198,8 +198,9 @@ VS Code 扩展：[`editors/vscode-nst/`](../editors/vscode-nst/)。
 | 测试 | 结果 |
 | --- | --- |
 | 首屏加载 | 5 轨 / 362 音符 / 无运行时异常 |
-| 示例谱库 | 3 个内置示例 + 1 个 LOCAL 东方工程，共 4 张卡 |
-| NST 导入 `oriental-riff.nst` | 46 音符 / 2 轨 / 8 小节 / 108 BPM |
+| 示例谱库 | 3 个 LOCAL 东方全曲工程（原 3 个「東方連復段」占位示例已移除） |
+| 本地东方全曲工程 | th06_05 3,329 音符 / 7 轨 / 57 小节；th06_14 2,941 / 8 轨 / 64 小节；th09_04 3,369 / 7 轨 / 64 小节 |
+| th06_05 主旋律修正 | 使用原曲 Ch3 电钢作为主旋律；Ch7 高音降为 26% 音量副旋律 |
 | 选中 C5 配和弦 | 生成 Cm：C5 · Eb5 · G5，写入铺底轨道 |
 | 完整 `th06_05.mid` 导入 | 14 轨 / 4,608 音符 / 57 小节 / 无异常 |
 | 完整 MIDI 播放 | 1.6 秒后播放头到第 1 小节第 4 拍，音频上下文 running |
@@ -264,17 +265,13 @@ VS Code 扩展：[`editors/vscode-nst/`](../editors/vscode-nst/)。
 ## 14. 复现示例
 
 ```powershell
-# 三套「東方連復段」示例
-node tools/build-samples.js
-
-# th06_05 本地编辑工程 + LOCAL 示例
+# 三个东方全曲工程 + LOCAL 示例
 node tools/build-touhou-edit.js
 ```
 
-两者都只使用 Node 内置 `fs` / `path` 和浏览器共享模块，无第三方依赖；共享模块通过 CommonJS `require` 导出，不再使用 `vm`。
+脚本只使用 Node 内置 `fs` / `path` 和浏览器共享模块，无第三方依赖；共享模块通过 CommonJS `require` 导出，不使用 `vm`。
 
 ## 15. 致谢
 
-- 東方連復段旋律参考：Wikimedia Commons `AsianRiffSheetMusic.png`，CC BY-SA 3.0。
-- 《おてんば恋娘》原曲：ZUN / Team Shanghai Alice；本仓库中的改编仅用于本地个人编辑。
+- 《おてんば恋娘》《魔法少女達の百年祭》《フラワリングナイト》原曲：ZUN / Team Shanghai Alice；本仓库中的改编仅用于本地个人编辑。
 - 所有合成器音色、鼓组、自动编曲、UI 与代码为 NeonScore 项目实现。

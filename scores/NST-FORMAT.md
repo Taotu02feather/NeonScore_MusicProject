@@ -2,14 +2,14 @@
 
 `.nst` 是 NeonScore 的纯文本乐谱格式。它没有隐藏数据、没有二进制字段，用 VSCode、记事本、Sublime Text 都能直接打开和修改。保存为 UTF-8 文本，然后在应用顶部「导入乐谱」中选择文件即可。
 
-> 提示：`scores/oriental-riff.nst` 是一个可以直接播放的完整示例。`scores/blank.nst` 是空白模板。
+> 提示：`scores/blank.nst` 是可直接编辑的空白模板。把文件保存为 UTF-8，再从应用导入即可。
 
 ## 1. 文件头
 
 文件头是 `键: 值` 形式，全部可选：
 
 ```nst
-title: 東方連復段 · 文本谱
+title: 示例 · 夜行
 tempo: 108
 meter: 4/4
 key: C minor
@@ -225,7 +225,7 @@ C5/4  // 这也是注释
 ## 9. 完整示例
 
 ```nst
-title: 東方連復段 · 文本谱
+title: 示例 · 夜行
 tempo: 108
 meter: 4/4
 bars: 8
@@ -233,16 +233,13 @@ key: C minor
 style: synthwave
 
 track lead "主旋律" instrument=neonSaw volume=90
-@1:1 C5/8
-@1:1.5 D5/8
-@1:2 E5/8
-@1:2.5 F5/8
-@1:3 G5/8
-@1:3.5 F#5/8
-@1:4 Eb5/8
-@1:4.5 C#5/8
-@2:1 C5/2
-@2:3 R/2
+@1:1 C5/4
+@1:2 Eb5/4
+@1:3 G5/4
+@1:4 Bb5/4
+@2:1 C6/2
+@2:3 G5/4
+@2:4 Eb5/4
 
 track pad "自动和弦" instrument=warmPad volume=65
 chords: Cm | Ab | Fm | G | Cm | Ab | Fm | G
