@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' file: blob: data:; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' data: blob: file:; media-src 'self' blob: file:; font-src 'self' data: file:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; frame-src 'none';">
+<meta name="theme-color" content="#070711">
+<title>NEONSCORE · 波形乐谱工坊</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23ff4fd8'/%3E%3Cstop offset='1' stop-color='%2355e6ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23090917'/%3E%3Ccircle cx='32' cy='27' r='14' fill='url(%23g)'/%3E%3Cpath d='M8 44h8l4-9 6 17 6-23 5 15 4-7h15' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="ambient ambient-a"></div>
+<div class="ambient ambient-b"></div>
+<div class="app" id="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#ff4fd8"/><stop offset=".52" stop-color="#a06bff"/><stop offset="1" stop-color="#55e6ff"/>
+          </linearGradient>
+        </defs>
+        <circle cx="24" cy="22" r="14" fill="url(#brandGrad)" opacity=".85"/>
+        <path d="M5 31h7l3-6 4 12 4-18 4 13 3-5h9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 37h32" stroke="#ff4fd8" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+      </svg>
+      <div class="brand-copy">
+        <div class="brand-title">NEON<span>SCORE</span></div>
+        <div class="brand-sub">波形乐谱工坊 · SYNTH SCORE STUDIO</div>
+      </div>
+    </div>
+
+    <div class="project-chip">
+      <span class="pulse-dot"></span>
+      <input id="project-title" class="project-title" value="NEON DREAM" maxlength="36" aria-label="工程名称" spellcheck="false">
+      <span class="project-format">.NSSCORE</span>
+    </div>
+
+    <nav class="top-actions" aria-label="工程操作">
+      <button class="top-btn" id="btn-new" title="新建工程">新建</button>
+      <button class="top-btn accent" id="btn-import" title="导入 MIDI / MusicXML / 文本谱">导入乐谱</button>
+      <button class="top-btn" id="btn-save" title="保存工程 JSON">保存</button>
+      <button class="top-btn icon" id="btn-help" title="使用说明与快捷键">?</button>
+    </nav>
+  </header>
+
+  <main class="workspace">
+    <section class="studio" aria-label="乐谱编辑器">
+
+      <div class="transport">
+        <button class="play-btn" id="btn-play" title="播放 / 暂停 (空格)" aria-label="播放">
+          <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+        </button>
+        <button class="transport-btn stop" id="btn-stop" title="停止并回到开头" aria-label="停止">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1" fill="currentColor"/></svg>
+        </button>
+
+        <div class="readout">
+          <div class="readout-main"><span id="position-bar">001</span><i>:</i><span id="position-beat">1</span><i>:</i><span id="position-tick">000</span></div>
+          <div class="readout-label">BAR · BEAT · TICK</div>
+        </div>
+
+        <div class="transport-field bpm-field">
+          <label for="bpm">BPM</label>
+          <input id="bpm" type="number" min="40" max="220" step="1" value="100" inputmode="numeric">
+        </div>
+
+        <button class="toggle-btn active" id="btn-loop" aria-pressed="true" title="循环播放">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4V7H8a4 4 0 0 0-4 4H2a6 6 0 0 1 6-6h9V2zm0 12h2a6 6 0 0 1-6 6H4l-4-4 4-4v3h9a4 4 0 0 0 4-4h2z" fill="currentColor"/></svg>
+          <span>LOOP</span>
+        </button>
+
+        <div class="transport-field meter-field">
+          <label for="meter">拍号</label>
+          <select id="meter" title="拍号">
+            <option value="4/4">4 / 4</option>
+            <option value="3/4">3 / 4</option>
+            <option value="5/4">5 / 4</option>
+            <option value="6/8">6 / 8</option>
+            <option value="2/4">2 / 4</option>
+          </select>
+        </div>
+
+        <div class="transport-field bars-field">
+          <label for="bars">小节</label>
+          <select id="bars" title="歌曲长度">
+            <option value="4">4</option>
+            <option value="8" selected>8</option>
+            <option value="16">16</option>
+            <option value="32">32</option>
+            <option value="64">64</option>
+          </select>
+        </div>
+
+        <div class="transport-spacer"></div>
+
+        <div class="style-chip" id="style-chip">
+          <span class="style-chip-label">STYLE</span>
+          <strong id="style-name">SYNTHWAVE</strong>
+        </div>
+
+        <button class="generate-btn" id="btn-generate" title="根据主旋律生成伴奏与鼓组">
+          <span class="spark">✦</span>
+          <span>一键编曲</span>
+        </button>
+      </div>
+
+      <div class="track-strip">
+        <div class="track-tabs" id="track-tabs" role="tablist" aria-label="音轨"></div>
+        <button class="add-track" id="btn-add-track" title="添加音轨">+</button>
+        <div class="strip-spacer"></div>
+        <div class="track-strip-info">
+          <span id="track-count">5 TRACKS</span>
+          <span class="strip-sep">/</span>
+          <span id="note-count-top">0 NOTES</span>
+        </div>
+      </div>
+
+      <div class="editor-card">
+        <div class="editor-tools">
+          <div class="segmented" id="tool-switch" aria-label="编辑工具">
+            <button class="active" data-tool="draw" title="画笔工具">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 0 0-3-3L5 17v3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14.5 7.5l3 3" stroke="currentColor" stroke-width="1.7"/></svg>
+              画笔
+            </button>
+            <button data-tool="select" title="选择 / 移动工具">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 8-6 1.5L10 19 5 3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              选择
+            </button>
+          </div>
+
+          <label class="mini-field">时值
+            <select id="note-length">
+              <option value="0.25">1/16</option>
+              <option value="0.5">1/8</option>
+              <option value="1" selected>1/4</option>
+              <option value="2">1/2</option>
+              <option value="4">全音符</option>
+            </select>
+          </label>
+
+          <label class="mini-field">吸附
+            <select id="snap">
+              <option value="0.25">1/16</option>
+              <option value="0.5" selected>1/8</option>
+              <option value="1">1/4</option>
+              <option value="0">关闭</option>
+            </select>
+          </label>
+
+          <div class="tool-divider"></div>
+
+          <button class="tool-ghost" id="btn-undo" title="撤销 (Ctrl+Z)">撤销</button>
+          <button class="tool-ghost" id="btn-redo" title="重做 (Ctrl+Y)">重做</button>
+
+          <div class="tool-spacer"></div>
+
+          <div class="zoom-control">
+            <button id="btn-zoom-out" title="缩小">−</button>
+            <span id="zoom-value">100%</span>
+            <button id="btn-zoom-in" title="放大">+</button>
+          </div>
+          <button class="tool-ghost danger" id="btn-clear-track" title="清空当前轨道的音符">清空轨道</button>
+        </div>
+
+        <div class="roll-shell" id="roll-shell">
+          <div class="keyboard-wrap">
+            <canvas id="keyboard" aria-label="钢琴键盘"></canvas>
+          </div>
+          <div class="roll-viewport" id="roll-viewport">
+            <div class="roll-content" id="roll-content">
+              <canvas id="roll" aria-label="钢琴卷帘编辑器"></canvas>
+              <div class="playhead" id="playhead"><i></i></div>
+              <div class="edit-cursor" id="edit-cursor"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-footer">
+          <div class="footer-hint" id="roll-hint">
+            <span class="hint-key">CLICK</span> 写入音符
+            <span class="hint-sep">·</span>
+            <span class="hint-key">DRAG</span> 移动
+            <span class="hint-sep">·</span>
+            <span class="hint-key">EDGE</span> 改时值
+            <span class="hint-sep">·</span>
+            <span class="hint-key">RIGHT CLICK</span> 删除
+          </div>
+          <div class="footer-noteinfo" id="selection-info">NO NOTE SELECTED</div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="rack" aria-label="音色与编曲控制">
+      <div class="scope-card">
+        <div class="scope-head">
+          <span class="scope-title"><i></i>SIGNAL MONITOR</span>
+          <span class="scope-state" id="scope-state">IDLE</span>
+        </div>
+        <canvas id="scope" aria-label="频谱示波器"></canvas>
+        <div class="scope-scan"></div>
+        <div class="scope-meta"><span id="scope-key">A MINOR</span><span id="scope-bpm">100 BPM</span></div>
+      </div>
+
+      <div class="rack-tabs" role="tablist" aria-label="控制面板">
+        <button class="active" data-tab="sound" role="tab">音色</button>
+        <button data-tab="arrange" role="tab">编曲</button>
+        <button data-tab="output" role="tab">输出</button>
+      </div>
+
+      <div class="rack-body">
+        <section class="rack-panel" data-panel="sound">
+          <div class="section-heading">
+            <span>音色包</span><small>TONE PACKS</small>
+          </div>
+          <div class="style-grid" id="style-packs"></div>
+
+          <div class="section-heading">
+            <span>当前轨道</span><small>CHANNEL STRIP</small>
+          </div>
+          <div class="track-inspector">
+            <div class="inspector-title">
+              <span class="track-color-dot" id="inspector-dot"></span>
+              <input id="track-name" class="track-name-input" maxlength="24" aria-label="轨道名称" spellcheck="false">
+              <span class="role-badge" id="role-badge">LEAD</span>
+            </div>
+            <label class="stack-field">
+              <span>乐器 <em>INSTRUMENT</em></span>
+              <select id="instrument-select"></select>
+            </label>
+            <p class="preset-desc" id="instrument-desc">选择一条音轨后调整它的音色。</p>
+            <div class="inspector-actions">
+              <button class="small-btn" id="btn-audition">试听</button>
+              <button class="small-btn toggleable" id="btn-track-mute" title="静音此轨道">MUTE</button>
+              <button class="small-btn toggleable" id="btn-track-solo" title="独奏此轨道">SOLO</button>
+            </div>
+            <label class="range-field">
+              <span>轨道音量 <b id="track-volume-value">80</b></span>
+              <input id="track-volume" type="range" min="0" max="100" value="80">
+            </label>
+            <button class="text-btn danger" id="btn-delete-track">删除当前轨道</button>
+          </div>
+
+          <div class="section-heading">
+            <span>主效果器</span><small>MASTER FX</small>
+          </div>
+          <div class="fx-stack">
+            <label class="range-field"><span>混响 <b id="fx-reverb-value">42</b></span><input id="fx-reverb" type="range" min="0" max="100" value="42"></label>
+            <label class="range-field"><span>延迟 <b id="fx-delay-value">28</b></span><input id="fx-delay" type="range" min="0" max="100" value="28"></label>
+            <label class="range-field"><span>模拟过载 <b id="fx-drive-value">26</b></span><input id="fx-drive" type="range" min="0" max="100" value="26"></label>
+            <label class="range-field"><span>侧链泵动 <b id="fx-sidechain-value">78</b></span><input id="fx-sidechain" type="range" min="0" max="100" value="78"></label>
+            <label class="range-field"><span>亮度 <b id="fx-brightness-value">60</b></span><input id="fx-brightness" type="range" min="0" max="100" value="60"></label>
+          </div>
+          <p class="panel-tip">每一条轨道都可以使用完全不同的音色。修改音色后按播放即可听到新配器。</p>
+        </section>
+
+        <section class="rack-panel" data-panel="arrange" hidden>
+          <div class="section-heading"><span>调性与和声</span><small>HARMONY</small></div>
+          <div class="two-fields">
+            <label class="stack-field"><span>主音 <em>KEY</em></span><select id="key-root"></select></label>
+            <label class="stack-field"><span>调式 <em>MODE</em></span><select id="key-mode"><option value="minor">小调</option><option value="major">大调</option></select></label>
+          </div>
+          <label class="stack-field"><span>和弦走向 <em>PROGRESSION</em></span><select id="progression-select"></select></label>
+          <div class="chord-chips" id="chord-chips"></div>
+          <div class="two-fields">
+            <button class="wide-btn" id="btn-harmonize" title="用选中的音符作为根音，自动补全三和弦或七和弦">为选中根音配和弦</button>
+            <button class="wide-btn" id="btn-detect-key">从旋律检测调性</button>
+          </div>
+
+          <div class="section-heading"><span>伴奏织体</span><small>ARRANGEMENT</small></div>
+          <label class="stack-field"><span>琶音型态 <em>ARP PATTERN</em></span>
+            <select id="arp-pattern">
+              <option value="up">上行 16 分</option>
+              <option value="updown" selected>上下往返</option>
+              <option value="octave">八度跳跃</option>
+              <option value="offbeat">切分脉冲</option>
+            </select>
+          </label>
+          <label class="stack-field"><span>鼓组律动 <em>DRUM FEEL</em></span>
+            <select id="drum-style">
+              <option value="classic" selected>经典 80s</option>
+              <option value="four">四踩 / DARKSYNTH</option>
+              <option value="half">半速 / DREAM</option>
+              <option value="chip">芯片 / CHIPTUNE</option>
+              <option value="city">城市流行</option>
+              <option value="none">无鼓</option>
+            </select>
+          </label>
+          <label class="range-field"><span>织体密度 <b id="density-value">65</b></span><input id="density" type="range" min="10" max="100" value="65"></label>
+          <label class="range-field"><span>摇摆量 <b id="swing-value">0</b></span><input id="swing" type="range" min="0" max="100" value="0"></label>
+          <button class="generate-btn wide" id="btn-generate-2"><span class="spark">✦</span> 生成伴奏</button>
+          <p class="panel-tip">「一键编曲」会保留主旋律，并重写琶音、贝斯、铺底与鼓组。主旋律为空时会自动作曲。</p>
+        </section>
+
+        <section class="rack-panel" data-panel="output" hidden>
+          <div class="section-heading"><span>导出音频</span><small>RENDER</small></div>
+          <div class="export-card">
+            <div class="export-card-head"><span>WAV · 44.1kHz · 16bit</span><span id="render-length">~00:19</span></div>
+            <p>离线渲染当前工程，包含混响、延迟、侧链与母带压缩。</p>
+            <button class="wide-btn primary" id="btn-render-wav">渲染并下载 WAV</button>
+          </div>
+          <div class="section-heading"><span>乐谱文件</span><small>SCORE FILES</small></div>
+          <div class="export-grid">
+            <button class="export-btn" id="btn-export-midi"><b>MIDI</b><span>导出可编辑乐谱</span></button>
+            <button class="export-btn" id="btn-export-text"><b>NST</b><span>导出文本谱 .nst</span></button>
+            <button class="export-btn" id="btn-import-2"><b>IMPORT</b><span>导入新乐谱</span></button>
+            <button class="export-btn" id="btn-save-2"><b>JSON</b><span>保存工程文件</span></button>
+            <button class="export-btn" id="btn-load-json"><b>OPEN</b><span>打开工程文件</span></button>
+          </div>
+          <div class="section-heading"><span>工程统计</span><small>PROJECT</small></div>
+          <div class="stats" id="project-stats"></div>
+          <p class="panel-tip">导出的 WAV 可直接分享或导入视频剪辑软件。工程 JSON 会保留全部音色、和弦与音符。</p>
+        </section>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<input type="file" id="file-input" hidden accept=".mid,.midi,.musicxml,.xml,.mxl,.json,.nsscore,.nst,.txt,audio/midi,application/xml,application/json,text/plain">
+<input type="file" id="json-input" hidden accept=".json,.nsscore,application/json">
+
+<div class="toast-root" id="toast-root" aria-live="polite"></div>
+
+<div class="modal-root" id="modal-root" hidden>
+  <div class="modal-backdrop" data-close="1"></div>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-head">
+      <div>
+        <div class="modal-kicker" id="modal-kicker">NEONSCORE</div>
+        <h2 id="modal-title">标题</h2>
+      </div>
+      <button class="modal-close" data-close="1" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-foot" id="modal-foot"></div>
+  </div>
+</div>
+
+<div class="busy" id="busy" hidden>
+  <div class="busy-card">
+    <div class="busy-sun"></div>
+    <div class="busy-title" id="busy-title">RENDERING</div>
+    <div class="busy-desc" id="busy-desc">正在离线渲染音频…</div>
+    <div class="busy-bar"><i id="busy-progress"></i></div>
+  </div>
+</div>
+
+<script src="js/util.js"></script>
+<script src="js/theory.js"></script>
+<script src="js/presets.js"></script>
+<script src="js/model.js"></script>
+<script src="js/midi.js"></script>
+<script src="js/musicxml.js"></script>
+<script src="js/textscore.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/editor.js"></script>
+<script src="scores/library.js"></script>
+<script src="scores/local-library.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

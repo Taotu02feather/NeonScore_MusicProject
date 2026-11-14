@@ -1,0 +1,16 @@
+# NeonScore Text (.nst)
+# 在这里写你的乐谱，然后从应用的「导入乐谱」中选择本文件。
+
+title: My New Score
+tempo: 100
+meter: 4/4
+key: A minor
+style: synthwave
+
+# 主旋律：C5/4 = 四分音符，D5/8 = 八分音符，R/4 = 休止
+track lead "主旋律" instrument=neonSaw volume=85
+| C5/4 E5/4 G5/4 A5/4 |
+
+# 每小节一个和弦根音，自动补全和弦音
+track pad "自动和弦" instrument=warmPad volume=65
+chords: Am | F | C | G

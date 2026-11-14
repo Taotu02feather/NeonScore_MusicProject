@@ -1,0 +1,130 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "NeonScore Text",
+  "scopeName": "source.nst",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#directive" },
+    { "include": "#track" },
+    { "include": "#chords" },
+    { "include": "#position" },
+    { "include": "#velocity" },
+    { "include": "#barline" },
+    { "include": "#rest" },
+    { "include": "#chord-notes" },
+    { "include": "#drum" },
+    { "include": "#note" },
+    { "include": "#duration" }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "match": "^\\s*#.*$",
+          "name": "comment.line.number-sign.nst"
+        },
+        {
+          "match": "//.*$",
+          "name": "comment.line.double-slash.nst"
+        }
+      ]
+    },
+    "directive": {
+      "match": "^\\s*(title|tempo|bpm|meter|time|key|style|swing|density|bars)\\s*(:)\\s*(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.directive.nst" },
+        "2": { "name": "punctuation.separator.key-value.nst" },
+        "3": { "name": "string.unquoted.value.nst" }
+      }
+    },
+    "track": {
+      "begin": "^\\s*(track)\\s+([a-z]+)(?:\\s+\"([^\"]*)\")?",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.track.nst" },
+        "2": { "name": "entity.name.type.role.nst" },
+        "3": { "name": "entity.name.function.track-name.nst" }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "match": "\\b(instrument|volume|at)(=)",
+          "captures": {
+            "1": { "name": "variable.parameter.nst" },
+            "2": { "name": "keyword.operator.assignment.nst" }
+          }
+        },
+        {
+          "match": "\\b[A-Za-z0-9_]+\\b",
+          "name": "string.unquoted.attribute-value.nst"
+        }
+      ]
+    },
+    "chords": {
+      "match": "^\\s*(chords)\\s*(:)\\s*(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.chords.nst" },
+        "2": { "name": "punctuation.separator.key-value.nst" },
+        "3": {
+          "patterns": [
+            { "include": "#chord-symbol" },
+            { "match": "\\|", "name": "punctuation.separator.bar.nst" },
+            { "match": "\\bR\\b", "name": "constant.language.rest.nst" }
+          ]
+        }
+      }
+    },
+    "chord-symbol": {
+      "match": "\\b[A-G][#b]?(?:maj7|M7|m7|min7|m|sus2|sus4|dim|aug|add9|6|m6|9|m9|7)?\\b",
+      "name": "support.type.chord.nst"
+    },
+    "position": {
+      "match": "@\\d+(?::\\d+(?:\\.\\d+)?)?",
+      "name": "constant.numeric.position.nst"
+    },
+    "velocity": {
+      "match": "\\b(?:v|vel)=\\d+\\b",
+      "name": "constant.numeric.velocity.nst"
+    },
+    "barline": {
+      "match": "\\|",
+      "name": "punctuation.separator.bar.nst"
+    },
+    "rest": {
+      "match": "\\bR(?:[:/][0-9.]+)?[!]?\\b",
+      "name": "constant.language.rest.nst"
+    },
+    "chord-notes": {
+      "match": "\\[([A-G][#b]?-?\\d+(?:\\s*,\\s*[A-G][#b]?-?\\d+)+)\\]",
+      "captures": {
+        "1": { "name": "string.unquoted.chord-notes.nst" }
+      }
+    },
+    "drum": {
+      "match": "\\b(K|S|H|O|C|T|CR)(?=[:/\\s|]|$)",
+      "name": "support.function.drum.nst"
+    },
+    "note": {
+      "match": "\\b([A-G][#b]?)(-?\\d+)?(?::([A-Za-z0-9.]+))?",
+      "captures": {
+        "1": { "name": "constant.note.name.nst" },
+        "2": { "name": "constant.numeric.octave.nst" },
+        "3": { "name": "support.type.chord-quality.nst" }
+      }
+    },
+    "duration": {
+      "patterns": [
+        {
+          "match": "(?<=/)(1|2|4|8|16|32|64)(\\.{0,2})",
+          "captures": {
+            "1": { "name": "constant.numeric.duration.nst" },
+            "2": { "name": "punctuation.dot.nst" }
+          }
+        },
+        {
+          "match": ":[0-9]+(?:\\.[0-9]+)?",
+          "name": "constant.numeric.duration-beats.nst"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "neonscore-nst",
+  "displayName": "NeonScore NST",
+  "description": "Syntax highlighting and snippets for NeonScore .nst text scores",
+  "version": "0.1.0",
+  "publisher": "neonscore",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "nst",
+        "aliases": [
+          "NeonScore Text",
+          "nst"
+        ],
+        "extensions": [
+          ".nst"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nst",
+        "scopeName": "source.nst",
+        "path": "./syntaxes/nst.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "nst",
+        "path": "./snippets/nst.json"
+      }
+    ]
+  }
+}

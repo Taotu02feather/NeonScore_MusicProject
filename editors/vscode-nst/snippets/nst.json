@@ -1,0 +1,57 @@
+{
+  "NeonScore header": {
+    "prefix": "nst-header",
+    "body": [
+      "title: ${1:My Score}",
+      "tempo: ${2:100}",
+      "meter: ${3:4/4}",
+      "bars: ${4:8}",
+      "key: ${5:A minor}",
+      "style: ${6:synthwave}",
+      "density: ${7:65}",
+      "swing: ${8:0}",
+      ""
+    ],
+    "description": "NeonScore Text file header"
+  },
+  "Lead track": {
+    "prefix": "nst-track",
+    "body": [
+      "track ${1|lead,arp,bass,pad,drums,extra|} \"${2:Track}\" instrument=${3:neonSaw} volume=${4:85}",
+      "@1:1 ${5:C5}/4"
+    ],
+    "description": "Start a track and place a note at bar 1 beat 1"
+  },
+  "Chord progression": {
+    "prefix": "nst-chords",
+    "body": [
+      "track pad \"自动和弦\" instrument=warmPad volume=65",
+      "chords: ${1:Am | F | C | G}"
+    ],
+    "description": "One chord per bar, chord tones generated automatically"
+  },
+  "Melody line with absolute positions": {
+    "prefix": "nst-melody",
+    "body": [
+      "@${1:1}:${2:1} ${3:C5}/4",
+      "@${4:1}:${5:2} ${6:E5}/4",
+      "@${7:1}:${8:3} ${9:G5}/2"
+    ],
+    "description": "Three notes with absolute bar:beat positions"
+  },
+  "Drum pattern": {
+    "prefix": "nst-drums",
+    "body": [
+      "track drums \"鼓组\" instrument=gated80s volume=85",
+      "@1:1 K/4",
+      "@1:1.5 H/8",
+      "@1:2 S/4",
+      "@1:2.5 H/8",
+      "@1:3 K/4",
+      "@1:3.5 H/8",
+      "@1:4 S/4",
+      "@1:4.5 H/8"
+    ],
+    "description": "A basic 80s drum pattern with absolute positions"
+  }
+}

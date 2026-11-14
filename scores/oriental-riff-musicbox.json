@@ -1,0 +1,1248 @@
+{
+  "app": "NEONSCORE",
+  "schema": 1,
+  "savedAt": "2026-11-14T18:08:11.560Z",
+  "song": {
+    "schema": 1,
+    "title": "東方連復段 · 八音盒",
+    "bpm": 84,
+    "meter": "4/4",
+    "beatsPerBar": 4,
+    "bars": 8,
+    "keyRoot": 0,
+    "keyMode": "minor",
+    "progressionPreset": "bittersweet",
+    "chords": [
+      "Cm",
+      "Ab",
+      "Fm",
+      "G",
+      "Cm",
+      "Ab",
+      "Fm",
+      "G"
+    ],
+    "styleId": "musicbox",
+    "arpPattern": "up",
+    "drumStyle": "none",
+    "density": 34,
+    "swing": 0,
+    "fx": {
+      "reverb": 68,
+      "delay": 38,
+      "drive": 4,
+      "sidechain": 18,
+      "brightness": 55
+    },
+    "tracks": [
+      {
+        "id": "t-lb-1vx4",
+        "name": "主旋律",
+        "role": "lead",
+        "instrument": "musicBox",
+        "color": "#ff4fd8",
+        "volume": 0.9,
+        "mute": false,
+        "solo": false,
+        "notes": [
+          {
+            "id": "n-lg-vh08",
+            "pitch": 60,
+            "start": 0,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lh-z67i",
+            "pitch": 62,
+            "start": 0.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-li-vk1a",
+            "pitch": 64,
+            "start": 1,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lj-x4xb",
+            "pitch": 65,
+            "start": 1.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lk-zmg4",
+            "pitch": 67,
+            "start": 2,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-ll-rfbw",
+            "pitch": 66,
+            "start": 2.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lm-o99i",
+            "pitch": 63,
+            "start": 3,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-ln-sg9y",
+            "pitch": 61,
+            "start": 3.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lo-uizo",
+            "pitch": 60,
+            "start": 4,
+            "dur": 1.8,
+            "vel": 0.88
+          },
+          {
+            "id": "n-lp-1ahg",
+            "pitch": 67,
+            "start": 6,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-lq-mvnt",
+            "pitch": 68,
+            "start": 6.5,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-lr-9g4s",
+            "pitch": 67,
+            "start": 7,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-ls-4xj0",
+            "pitch": 65,
+            "start": 7.5,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-lt-rugj",
+            "pitch": 60,
+            "start": 8,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lu-gkxb",
+            "pitch": 62,
+            "start": 8.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lv-s2lq",
+            "pitch": 64,
+            "start": 9,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lw-xd4k",
+            "pitch": 65,
+            "start": 9.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lx-7l42",
+            "pitch": 67,
+            "start": 10,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-ly-l1mm",
+            "pitch": 66,
+            "start": 10.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-lz-7bhh",
+            "pitch": 63,
+            "start": 11,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-m0-2p3b",
+            "pitch": 61,
+            "start": 11.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-m1-gpse",
+            "pitch": 60,
+            "start": 12,
+            "dur": 1.8,
+            "vel": 0.88
+          },
+          {
+            "id": "n-m2-4l8c",
+            "pitch": 67,
+            "start": 14,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-m3-kh5b",
+            "pitch": 68,
+            "start": 14.5,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-m4-nffn",
+            "pitch": 67,
+            "start": 15,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-m5-dk57",
+            "pitch": 65,
+            "start": 15.5,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-m6-znz6",
+            "pitch": 72,
+            "start": 16,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-m7-e21b",
+            "pitch": 74,
+            "start": 16.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-m8-h6kp",
+            "pitch": 76,
+            "start": 17,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-m9-781t",
+            "pitch": 77,
+            "start": 17.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-ma-oadg",
+            "pitch": 79,
+            "start": 18,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mb-h89g",
+            "pitch": 78,
+            "start": 18.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mc-vxgq",
+            "pitch": 75,
+            "start": 19,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-md-mf1t",
+            "pitch": 73,
+            "start": 19.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-me-h1tq",
+            "pitch": 72,
+            "start": 20,
+            "dur": 1.8,
+            "vel": 0.88
+          },
+          {
+            "id": "n-mf-ueat",
+            "pitch": 79,
+            "start": 22,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-mg-jsrv",
+            "pitch": 80,
+            "start": 22.5,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-mh-38q9",
+            "pitch": 79,
+            "start": 23,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-mi-uud3",
+            "pitch": 77,
+            "start": 23.5,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-mj-ogn2",
+            "pitch": 72,
+            "start": 24,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mk-q266",
+            "pitch": 74,
+            "start": 24.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-ml-aood",
+            "pitch": 76,
+            "start": 25,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mm-yi1j",
+            "pitch": 77,
+            "start": 25.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mn-p1yt",
+            "pitch": 79,
+            "start": 26,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mo-odfx",
+            "pitch": 78,
+            "start": 26.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mp-19zv",
+            "pitch": 75,
+            "start": 27,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mq-lzev",
+            "pitch": 73,
+            "start": 27.5,
+            "dur": 0.46,
+            "vel": 0.84
+          },
+          {
+            "id": "n-mr-po9o",
+            "pitch": 72,
+            "start": 28,
+            "dur": 1.8,
+            "vel": 0.88
+          },
+          {
+            "id": "n-ms-jbcz",
+            "pitch": 79,
+            "start": 30,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-mt-5wu1",
+            "pitch": 80,
+            "start": 30.5,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-mu-x1fi",
+            "pitch": 79,
+            "start": 31,
+            "dur": 0.44,
+            "vel": 0.76
+          },
+          {
+            "id": "n-mv-qrxb",
+            "pitch": 77,
+            "start": 31.5,
+            "dur": 0.44,
+            "vel": 0.76
+          }
+        ]
+      },
+      {
+        "id": "t-lc-kgfd",
+        "name": "琶音",
+        "role": "arp",
+        "instrument": "musicBox",
+        "color": "#55e6ff",
+        "volume": 0.82,
+        "mute": false,
+        "solo": false,
+        "notes": [
+          {
+            "id": "n-o8-h3uw",
+            "pitch": 72,
+            "start": 0,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-o9-1kum",
+            "pitch": 75,
+            "start": 0.5,
+            "dur": 0.36,
+            "vel": 0.3966632334701717
+          },
+          {
+            "id": "n-oa-nvzs",
+            "pitch": 79,
+            "start": 1,
+            "dur": 0.36,
+            "vel": 0.40586355118080975
+          },
+          {
+            "id": "n-ob-y0fq",
+            "pitch": 84,
+            "start": 1.5,
+            "dur": 0.36,
+            "vel": 0.4287288979627192
+          },
+          {
+            "id": "n-oc-j2t0",
+            "pitch": 87,
+            "start": 2,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-od-6ar4",
+            "pitch": 91,
+            "start": 2.5,
+            "dur": 0.36,
+            "vel": 0.40525377279147506
+          },
+          {
+            "id": "n-oe-6nyn",
+            "pitch": 96,
+            "start": 3,
+            "dur": 0.36,
+            "vel": 0.4231745909154415
+          },
+          {
+            "id": "n-of-2g16",
+            "pitch": 72,
+            "start": 3.5,
+            "dur": 0.36,
+            "vel": 0.36331974463537337
+          },
+          {
+            "id": "n-og-ksvc",
+            "pitch": 68,
+            "start": 4,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-oh-a0wn",
+            "pitch": 72,
+            "start": 4.5,
+            "dur": 0.36,
+            "vel": 0.4001925617828965
+          },
+          {
+            "id": "n-oi-eu98",
+            "pitch": 75,
+            "start": 5,
+            "dur": 0.36,
+            "vel": 0.3831467195600271
+          },
+          {
+            "id": "n-oj-bt0l",
+            "pitch": 80,
+            "start": 5.5,
+            "dur": 0.36,
+            "vel": 0.4131388359889388
+          },
+          {
+            "id": "n-ok-2vm8",
+            "pitch": 84,
+            "start": 6,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-ol-iwnw",
+            "pitch": 87,
+            "start": 6.5,
+            "dur": 0.36,
+            "vel": 0.38990967281162736
+          },
+          {
+            "id": "n-om-plek",
+            "pitch": 92,
+            "start": 7,
+            "dur": 0.36,
+            "vel": 0.41896983865648507
+          },
+          {
+            "id": "n-on-tesb",
+            "pitch": 96,
+            "start": 7.5,
+            "dur": 0.36,
+            "vel": 0.4360613396577537
+          },
+          {
+            "id": "n-oo-qa2b",
+            "pitch": 77,
+            "start": 8,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-op-75dt",
+            "pitch": 80,
+            "start": 8.5,
+            "dur": 0.36,
+            "vel": 0.4192425614409149
+          },
+          {
+            "id": "n-oq-knsm",
+            "pitch": 84,
+            "start": 9,
+            "dur": 0.36,
+            "vel": 0.4062473364174366
+          },
+          {
+            "id": "n-or-mb1m",
+            "pitch": 89,
+            "start": 9.5,
+            "dur": 0.36,
+            "vel": 0.4015097141265869
+          },
+          {
+            "id": "n-os-cekc",
+            "pitch": 92,
+            "start": 10,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-ot-zzr4",
+            "pitch": 96,
+            "start": 10.5,
+            "dur": 0.36,
+            "vel": 0.3613106948509812
+          },
+          {
+            "id": "n-ou-35u3",
+            "pitch": 77,
+            "start": 11,
+            "dur": 0.36,
+            "vel": 0.37388704596087335
+          },
+          {
+            "id": "n-ov-nate",
+            "pitch": 80,
+            "start": 11.5,
+            "dur": 0.36,
+            "vel": 0.408325150180608
+          },
+          {
+            "id": "n-ow-jfmf",
+            "pitch": 79,
+            "start": 12,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-ox-mkth",
+            "pitch": 83,
+            "start": 12.5,
+            "dur": 0.36,
+            "vel": 0.4017673220485449
+          },
+          {
+            "id": "n-oy-w5gc",
+            "pitch": 86,
+            "start": 13,
+            "dur": 0.36,
+            "vel": 0.388231598995626
+          },
+          {
+            "id": "n-oz-prrc",
+            "pitch": 91,
+            "start": 13.5,
+            "dur": 0.36,
+            "vel": 0.4124043237790465
+          },
+          {
+            "id": "n-p0-b2dp",
+            "pitch": 95,
+            "start": 14,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-p1-grt9",
+            "pitch": 79,
+            "start": 14.5,
+            "dur": 0.36,
+            "vel": 0.40165745289996263
+          },
+          {
+            "id": "n-p2-wyq5",
+            "pitch": 83,
+            "start": 15,
+            "dur": 0.36,
+            "vel": 0.3698944465070963
+          },
+          {
+            "id": "n-p3-amol",
+            "pitch": 86,
+            "start": 15.5,
+            "dur": 0.36,
+            "vel": 0.4343297360837459
+          },
+          {
+            "id": "n-p4-e7pe",
+            "pitch": 72,
+            "start": 16,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-p5-tz2w",
+            "pitch": 75,
+            "start": 16.5,
+            "dur": 0.36,
+            "vel": 0.4343173199146986
+          },
+          {
+            "id": "n-p6-uvv1",
+            "pitch": 79,
+            "start": 17,
+            "dur": 0.36,
+            "vel": 0.3702464584633708
+          },
+          {
+            "id": "n-p7-cwep",
+            "pitch": 84,
+            "start": 17.5,
+            "dur": 0.36,
+            "vel": 0.4291875116527081
+          },
+          {
+            "id": "n-p8-zilx",
+            "pitch": 87,
+            "start": 18,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-p9-k5h",
+            "pitch": 91,
+            "start": 18.5,
+            "dur": 0.36,
+            "vel": 0.38028898885473605
+          },
+          {
+            "id": "n-pa-jd5i",
+            "pitch": 96,
+            "start": 19,
+            "dur": 0.36,
+            "vel": 0.37268130281940104
+          },
+          {
+            "id": "n-pb-ze9a",
+            "pitch": 72,
+            "start": 19.5,
+            "dur": 0.36,
+            "vel": 0.43225351493805647
+          },
+          {
+            "id": "n-pc-l5hk",
+            "pitch": 68,
+            "start": 20,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-pd-67ty",
+            "pitch": 72,
+            "start": 20.5,
+            "dur": 0.36,
+            "vel": 0.4033593933843076
+          },
+          {
+            "id": "n-pe-wxix",
+            "pitch": 75,
+            "start": 21,
+            "dur": 0.36,
+            "vel": 0.4232117799296975
+          },
+          {
+            "id": "n-pf-2p2o",
+            "pitch": 80,
+            "start": 21.5,
+            "dur": 0.36,
+            "vel": 0.377409740332514
+          },
+          {
+            "id": "n-pg-ehyl",
+            "pitch": 84,
+            "start": 22,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-ph-tfww",
+            "pitch": 87,
+            "start": 22.5,
+            "dur": 0.36,
+            "vel": 0.4016747120954096
+          },
+          {
+            "id": "n-pi-nx9p",
+            "pitch": 92,
+            "start": 23,
+            "dur": 0.36,
+            "vel": 0.37203640034422275
+          },
+          {
+            "id": "n-pj-wzva",
+            "pitch": 96,
+            "start": 23.5,
+            "dur": 0.36,
+            "vel": 0.3758166866935789
+          },
+          {
+            "id": "n-pk-8h5d",
+            "pitch": 77,
+            "start": 24,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-pl-sy1c",
+            "pitch": 80,
+            "start": 24.5,
+            "dur": 0.36,
+            "vel": 0.4007452175207436
+          },
+          {
+            "id": "n-pm-jcui",
+            "pitch": 84,
+            "start": 25,
+            "dur": 0.36,
+            "vel": 0.3918526187725365
+          },
+          {
+            "id": "n-pn-ln6l",
+            "pitch": 89,
+            "start": 25.5,
+            "dur": 0.36,
+            "vel": 0.42454394707456233
+          },
+          {
+            "id": "n-po-n11o",
+            "pitch": 92,
+            "start": 26,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-pp-sl3x",
+            "pitch": 96,
+            "start": 26.5,
+            "dur": 0.36,
+            "vel": 0.400142389126122
+          },
+          {
+            "id": "n-pq-u6jp",
+            "pitch": 77,
+            "start": 27,
+            "dur": 0.36,
+            "vel": 0.3895355525054037
+          },
+          {
+            "id": "n-pr-cyt8",
+            "pitch": 80,
+            "start": 27.5,
+            "dur": 0.36,
+            "vel": 0.4387607083842158
+          },
+          {
+            "id": "n-ps-4eff",
+            "pitch": 79,
+            "start": 28,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-pt-rxaq",
+            "pitch": 83,
+            "start": 28.5,
+            "dur": 0.36,
+            "vel": 0.4100505853444338
+          },
+          {
+            "id": "n-pu-62hr",
+            "pitch": 86,
+            "start": 29,
+            "dur": 0.36,
+            "vel": 0.41712678100913764
+          },
+          {
+            "id": "n-pv-ixgr",
+            "pitch": 91,
+            "start": 29.5,
+            "dur": 0.36,
+            "vel": 0.36376183915883303
+          },
+          {
+            "id": "n-pw-7abr",
+            "pitch": 95,
+            "start": 30,
+            "dur": 0.36,
+            "vel": 0.56
+          },
+          {
+            "id": "n-px-2ezz",
+            "pitch": 79,
+            "start": 30.5,
+            "dur": 0.36,
+            "vel": 0.4194140889123082
+          },
+          {
+            "id": "n-py-ryx5",
+            "pitch": 83,
+            "start": 31,
+            "dur": 0.36,
+            "vel": 0.4399279505573213
+          },
+          {
+            "id": "n-pz-ieuw",
+            "pitch": 86,
+            "start": 31.5,
+            "dur": 0.36,
+            "vel": 0.37097332447767256
+          }
+        ]
+      },
+      {
+        "id": "t-ld-qsza",
+        "name": "低音",
+        "role": "bass",
+        "instrument": "subBass",
+        "color": "#ff9d5c",
+        "volume": 0.82,
+        "mute": false,
+        "solo": false,
+        "notes": [
+          {
+            "id": "n-ns-uogp",
+            "pitch": 36,
+            "start": 0,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-nt-knp2",
+            "pitch": 43,
+            "start": 2,
+            "dur": 1.4,
+            "vel": 0.3
+          },
+          {
+            "id": "n-nu-43n",
+            "pitch": 44,
+            "start": 4,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-nv-ekls",
+            "pitch": 51,
+            "start": 6,
+            "dur": 1.4,
+            "vel": 0.3
+          },
+          {
+            "id": "n-nw-vm1j",
+            "pitch": 41,
+            "start": 8,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-nx-1cdm",
+            "pitch": 48,
+            "start": 10,
+            "dur": 1.4,
+            "vel": 0.3
+          },
+          {
+            "id": "n-ny-1ukl",
+            "pitch": 43,
+            "start": 12,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-nz-u7ok",
+            "pitch": 50,
+            "start": 14,
+            "dur": 1.4,
+            "vel": 0.3
+          },
+          {
+            "id": "n-o0-y8jn",
+            "pitch": 36,
+            "start": 16,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-o1-f0sa",
+            "pitch": 43,
+            "start": 18,
+            "dur": 1.4,
+            "vel": 0.3
+          },
+          {
+            "id": "n-o2-7gi3",
+            "pitch": 44,
+            "start": 20,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-o3-3cmh",
+            "pitch": 51,
+            "start": 22,
+            "dur": 1.4,
+            "vel": 0.3
+          },
+          {
+            "id": "n-o4-hcv1",
+            "pitch": 41,
+            "start": 24,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-o5-7smq",
+            "pitch": 48,
+            "start": 26,
+            "dur": 1.4,
+            "vel": 0.3
+          },
+          {
+            "id": "n-o6-frrk",
+            "pitch": 43,
+            "start": 28,
+            "dur": 1.8,
+            "vel": 0.46
+          },
+          {
+            "id": "n-o7-79vn",
+            "pitch": 50,
+            "start": 30,
+            "dur": 1.4,
+            "vel": 0.3
+          }
+        ]
+      },
+      {
+        "id": "t-le-m8bh",
+        "name": "铺底",
+        "role": "pad",
+        "instrument": "glassPad",
+        "color": "#9b8cff",
+        "volume": 0.66,
+        "mute": false,
+        "solo": false,
+        "notes": [
+          {
+            "id": "n-mw-55cf",
+            "pitch": 58,
+            "start": 0,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-mx-vsw0",
+            "pitch": 61,
+            "start": 0,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-my-61ad",
+            "pitch": 65,
+            "start": 0,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-mz-jas6",
+            "pitch": 72,
+            "start": 0,
+            "dur": 3.88,
+            "vel": 0.2
+          },
+          {
+            "id": "n-n0-gfnx",
+            "pitch": 58,
+            "start": 4,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-n1-ai89",
+            "pitch": 62,
+            "start": 4,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-n2-vouj",
+            "pitch": 65,
+            "start": 4,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-n3-bkd7",
+            "pitch": 68,
+            "start": 4,
+            "dur": 3.88,
+            "vel": 0.2
+          },
+          {
+            "id": "n-n4-izg3",
+            "pitch": 58,
+            "start": 8,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-n5-3s51",
+            "pitch": 61,
+            "start": 8,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-n6-5ia6",
+            "pitch": 65,
+            "start": 8,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-n7-jino",
+            "pitch": 77,
+            "start": 8,
+            "dur": 3.88,
+            "vel": 0.2
+          },
+          {
+            "id": "n-n8-mq6g",
+            "pitch": 58,
+            "start": 12,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-n9-e9xp",
+            "pitch": 62,
+            "start": 12,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-na-9bxl",
+            "pitch": 65,
+            "start": 12,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-nb-707l",
+            "pitch": 67,
+            "start": 12,
+            "dur": 3.88,
+            "vel": 0.2
+          },
+          {
+            "id": "n-nc-hvgu",
+            "pitch": 58,
+            "start": 16,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-nd-v5wh",
+            "pitch": 61,
+            "start": 16,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-ne-fqhg",
+            "pitch": 65,
+            "start": 16,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-nf-xxz4",
+            "pitch": 72,
+            "start": 16,
+            "dur": 3.88,
+            "vel": 0.2
+          },
+          {
+            "id": "n-ng-iigp",
+            "pitch": 58,
+            "start": 20,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-nh-61iy",
+            "pitch": 62,
+            "start": 20,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-ni-jsek",
+            "pitch": 65,
+            "start": 20,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-nj-xaqm",
+            "pitch": 68,
+            "start": 20,
+            "dur": 3.88,
+            "vel": 0.2
+          },
+          {
+            "id": "n-nk-6cuv",
+            "pitch": 58,
+            "start": 24,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-nl-xe6u",
+            "pitch": 61,
+            "start": 24,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-nm-x3f3",
+            "pitch": 65,
+            "start": 24,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-nn-i01f",
+            "pitch": 77,
+            "start": 24,
+            "dur": 3.88,
+            "vel": 0.2
+          },
+          {
+            "id": "n-no-7svg",
+            "pitch": 58,
+            "start": 28,
+            "dur": 3.94,
+            "vel": 0.5
+          },
+          {
+            "id": "n-np-tfap",
+            "pitch": 62,
+            "start": 28,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-nq-ag35",
+            "pitch": 65,
+            "start": 28,
+            "dur": 3.94,
+            "vel": 0.38
+          },
+          {
+            "id": "n-nr-c0w2",
+            "pitch": 67,
+            "start": 28,
+            "dur": 3.88,
+            "vel": 0.2
+          }
+        ]
+      },
+      {
+        "id": "t-lf-uuj8",
+        "name": "鼓组",
+        "role": "drums",
+        "instrument": "lofiKit",
+        "color": "#58f5b0",
+        "volume": 0.86,
+        "mute": false,
+        "solo": false,
+        "notes": []
+      }
+    ],
+    "_lastSeed": 84
+  }
+}

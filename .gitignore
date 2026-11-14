@@ -1,0 +1,59 @@
+# ---- OS / 编辑器 / 临时文件 ----
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# ---- Node / 构建产物（本项目当前不需要 npm 安装，留作以后扩展） ----
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+.cache/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# ---- 本地测试 / 浏览器自动化 ----
+_*.png
+.chrome-*/
+.chrome-cdp*/
+.playwright/
+test-results/
+downloads/
+
+# ---- 乐谱输入 / 输出 ----
+# 自己的输入乐谱不强制入库；示例文件在 scores/ 根目录。
+scores/input/*
+!scores/input/.gitkeep
+# 应用导出的 WAV / MIDI / NST / JSON 不自动入库。
+scores/output/*
+!scores/output/.gitkeep
+
+# ---- 凭据 / 隐私 ----
+.env
+.env.*
+*.pem
+*.key
+
+# ---- 运行必需文件：明确不要忽略 ----
+!index.html
+!scores/library.js
+!scores/local-library.js
+
+# ---- 版权敏感的本地素材（默认注释，公开仓库前请取消注释） ----
+# 这些文件来自用户本地 MIDI 或由其生成的东方改编工程。
+# 是否提交由仓库所有者决定；公开分发前建议排除。
+# 注意：如果取消注释 scores/local-library.js，上面的 ! 规则会被后面的忽略规则覆盖。
+# TouhouMid/
+# scores/Touhou/
+# scores/local-library.js
+
